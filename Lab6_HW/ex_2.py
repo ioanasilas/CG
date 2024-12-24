@@ -4,9 +4,9 @@ from scipy.spatial import Voronoi, voronoi_plot_2d
 from matplotlib.animation import FuncAnimation
 
 '''
-Initially we have 4 half lines already, we want to keep this number
-For a point inside the convex hull, its Voronoi region is bounded because it is surrounded by the regions of other points.
-So, points inside the convex hull only create bounded edges in the Voronoi diagram.
+We want to reduce the number of half lines to 4,
+so we need to place the points such that the convex hull created by all points
+has 4 vertices. (the vertices of the convex hull correspond to the no of half lines in the voronoi diagram)
 '''
 
 # points
