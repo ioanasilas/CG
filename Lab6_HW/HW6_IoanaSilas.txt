@@ -1,0 +1,14 @@
+Geogebra:
+
+Ex. 1: https://www.geogebra.org/m/w74wh224
+Ex. 2: https://www.geogebra.org/m/jvcedmx9
+Ex. 3: https://www.geogebra.org/m/zyysembj
+Ex. 4: https://www.geogebra.org/m/pskgbgjk
+Ex. 5: https://www.geogebra.org/m/ur74vu9r
+Ex. 6: https://www.geogebra.org/m/m4dsetcn
+
+Python implementation (all exercises):
+
+https://github.com/ioanasilas/CG/tree/master/Lab6_HW
+
+There is also a .mp4 file attached that showcases the plotting of the results. I hope it's ok :) and happy holidays!

@@ -17,8 +17,8 @@ points = np.array([
     [7, 3],  # A4
     [11, 1],  # A5
     [9, 3],  # A6
-    [7, 2],  # A7 (new point we chose)
-    [9, 2]   # A8 (new point we chose)
+    [8, 5],  # A7 (new point we chose)
+    [8, -5]   # A8 (new point we chose)
 ])
 
 # plot
