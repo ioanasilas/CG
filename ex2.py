@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from scipy.spatial import ConvexHull
 
 import matplotlib.pyplot as plt
@@ -51,3 +52,83 @@ M = (-2 + λ, 3 - λ)
 
 points_count = points_on_border(A, B, C, D, M)
 print(points_count)
+=======
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_polygon_one_camera():
+
+    vertices = [
+        (0, 5), (-1, -2), (3, -2),  (3, 0),  (3, 2), (1, 2)
+    ]
+
+
+    x, y = zip(*vertices)
+
+    x = list(x) + [x[0]]
+    y = list(y) + [y[0]]
+
+
+    camera_start_x, camera_start_y = vertices[5]  # P5
+    camera_end_x, camera_end_y = 1.5, 1  # arbitrary point inside the polygon
+
+
+    plt.figure(figsize=(10, 8))
+    plt.plot(x, y, label="Polygon", color="brown")
+    plt.fill(x, y, color="lightcoral", alpha=0.4)
+    plt.scatter(camera_end_x, camera_end_y, color="green", label="Camera Target", s=100, zorder=5)
+
+    for vx, vy in vertices:
+        if (min(x) <= vx <= max(x)) and (min(y) <= vy <= max(y)):
+            plt.plot([camera_start_x, vx], [camera_start_y, vy], color="green", alpha=0.6, linewidth=2)
+
+
+    plt.plot([camera_start_x, camera_end_x], [camera_start_y, camera_end_y], color="green", alpha=0.8, label="Ray from P5")
+
+
+    plt.title("Art Gallery Theorem: One Camera Placement with Rays from P5")
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.axis("equal")
+    plt.show()
+
+def plot_polygon_two_cameras():
+    vertices = [
+        (0, 5), (-1, -2), (3, -2),  (3, 0),  (3, 2), (1, 2)
+    ]
+
+    x, y = zip(*vertices)
+
+    x = list(x) + [x[0]]
+    y = list(y) + [y[0]]
+
+    camera1_x, camera1_y = vertices[4]  # P6
+    camera2_x, camera2_y = vertices[0]  # P1
+
+    plt.figure(figsize=(10, 8))
+    plt.plot(x, y, label="Polygon", color="brown")
+    plt.fill(x, y, color="lightcoral", alpha=0.4)
+    plt.scatter(camera1_x, camera1_y, color="blue", label="Camera at P6", s=100, zorder=5)
+    plt.scatter(camera2_x, camera2_y, color="purple", label="Camera at P1", s=100, zorder=5)
+
+    for vx, vy in vertices:
+        if (min(x) <= vx <= max(x)) and (min(y) <= vy <= max(y)):
+            if (vx, vy) not in [vertices[4], vertices[3], vertices[2]]:  # Exclude P6, P4, and P2
+                plt.plot([camera2_x, vx], [camera2_y, vy], color="black", alpha=0.6, linewidth=2)
+            if (vx, vy) not in [vertices[0]]:
+                plt.plot([camera1_x, vx], [camera1_y, vy], color="blue", alpha=0.6, linewidth=2)
+
+
+    plt.title("Art Gallery Theorem: Two Cameras Placement")
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.axis("equal")
+    plt.show()
+
+plot_polygon_one_camera()
+plot_polygon_two_cameras()
+>>>>>>> b0680c0 (Lab7)

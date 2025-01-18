@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -73,3 +74,28 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
+=======
+import matplotlib.pyplot as plt
+import networkx as nx
+
+G = nx.Graph()
+
+points = {'A': (11, 9), 'B': (5, 1), 'C': (15, 1.5), 'D': (8, 1), 'E': (12, 1.3)}
+
+for point in points:
+    G.add_node(point, pos=points[point])
+
+edges = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('A', 'D'), ('A', 'E')]
+G.add_edges_from(edges)
+
+
+node_colors = {'A': 'red', 'B': 'blue', 'C': 'green', 'D': 'green', 'E': 'blue'}
+
+pos = nx.get_node_attributes(G, 'pos')
+
+plt.figure(figsize=(6, 6))
+nx.draw(G, pos, with_labels=True, node_size=500, node_color=[node_colors[node] for node in G.nodes], font_size=16, font_weight='bold', edge_color='black')
+
+plt.title('Triangulation with 3 Triangles and 5 Edges')
+plt.show()
+>>>>>>> b0680c0 (Lab7)

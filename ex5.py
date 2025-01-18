@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+<<<<<<< HEAD
 import time
 
 """
@@ -82,4 +83,40 @@ y_hull += (y_hull[0],)
 plt.plot(x_hull, y_hull, color='red', label='Convex Hull')
 
 plt.legend()
+=======
+
+
+points = {
+    'A': (-14, 9),
+    'B': (-15, 4),
+    'C': (-9, 4),
+    'D': (-3, 6),
+    'E': (-10, 6),
+    'F': (-11, 4)
+}
+
+black_edges = [('A', 'B'), ('A', 'E'), ('B', 'E'), ('E', 'D'), ('D', 'C'), ('C', 'F'), ('F', 'E'), ('A', 'D')]
+green_edges = [('B', 'F'), ('F', 'C'), ('C', 'E'), ('E', 'B')]
+
+plt.figure(figsize=(8, 6))
+
+for edge in black_edges:
+    x_coords = [points[edge[0]][0], points[edge[1]][0]]
+    y_coords = [points[edge[0]][1], points[edge[1]][1]]
+    plt.plot(x_coords, y_coords, color='black')
+
+for edge in green_edges:
+    x_coords = [points[edge[0]][0], points[edge[1]][0]]
+    y_coords = [points[edge[0]][1], points[edge[1]][1]]
+    plt.plot(x_coords, y_coords, color='green')
+
+for point, coord in points.items():
+    plt.scatter(*coord, color='blue')
+    plt.text(coord[0] + 0.3, coord[1], point, fontsize=12, color='blue')
+
+plt.xlim(-16, -2)
+plt.ylim(1, 10)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.gca().set_aspect('equal', adjustable='box')
+>>>>>>> b0680c0 (Lab7)
 plt.show()
