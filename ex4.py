@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+<<<<<<< HEAD
 """
 Leftmost:
 First test: Identify the leftmost point, which is P2=(1,3).
@@ -83,3 +84,47 @@ plt.legend()
 
 # Show the plot
 plt.show()
+=======
+# some triangle points
+triangle_points = [(0, 0), (4, 0), (2, 3)]
+
+# Points D, E, F, G along the segment BC
+# using parameter t to calculate positions along BC
+B = (4, 0)
+C = (2, 3)
+points_on_bc = {
+    'D': (B[0] - 0.75 * (B[0] - C[0]), B[1] - 0.75 * (B[1] - C[1])),
+    'E': (B[0] - 0.5 * (B[0] - C[0]), B[1] - 0.5 * (B[1] - C[1])),
+    'F': (B[0] - 0.25 * (B[0] - C[0]), B[1] - 0.25 * (B[1] - C[1])),
+    'G': (B[0] - 0.1 * (B[0] - C[0]), B[1] - 0.1 * (B[1] - C[1])),
+}
+
+x, y = zip(*triangle_points)
+
+x += (x[0],)
+y += (y[0],)
+
+node_colors = {'A': 'pink', 'B': 'red', 'C': 'blue', 'D': 'red', 'E': 'blue', 'F': 'red', 'G': 'blue'}
+
+# plot the triangle
+plt.figure(figsize=(6, 6))
+plt.plot(x, y, 'b-', linewidth=2)  
+plt.fill(x, y, 'cyan', alpha=0.3) 
+
+
+plt.scatter([0, 4, 2], [0, 0, 3], color=['pink', 'red', 'blue']) 
+plt.text(0, 0, 'A', fontsize=12, ha='right', color='black')
+plt.text(4, 0, 'B', fontsize=12, ha='left', color='black')
+plt.text(2, 3, 'C', fontsize=12, ha='center', color='black')
+
+for label, (px, py) in points_on_bc.items():
+    plt.scatter(px, py, color=node_colors[label])  
+    plt.text(px, py, label, fontsize=12, ha='center', color='black')
+
+    plt.plot([0, px], [0, py], 'g--') 
+
+plt.gca().set_aspect('equal', adjustable='box')
+plt.title('Triangle ABC with segments from A to Points D, E, F, G')
+plt.grid(True)
+plt.show()
+>>>>>>> b0680c0 (Lab7)

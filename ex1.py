@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from scipy.spatial import ConvexHull
 
 import matplotlib.pyplot as plt
@@ -63,3 +64,42 @@ plt.grid()
 plt.show()
 
 convex_hull
+=======
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_polygon_with_camera():
+    vertices = [
+         (-5, 6),(-7, 4), (-7, -4),  (-5, -6),(4, -4),   (6, -4), (9, -6), (11, -6),
+        (11, 6),(9, 6),  (6, 4),  (4, 4)
+    ]
+
+    x, y = zip(*vertices)
+
+    x = list(x) + [x[0]]
+    y = list(y) + [y[0]]
+
+    camera_x = 0
+    camera_y = 0
+
+    plt.figure(figsize=(10, 8))
+    plt.plot(x, y, label="Polygon", color="brown")
+    plt.fill(x, y, color="lightcoral", alpha=0.4)
+    plt.axhline(0, color="blue", linestyle="--", label="Symmetry Axis")
+    plt.scatter(camera_x, camera_y, color="green", label="Camera", s=100, zorder=5)
+
+    for vx, vy in vertices:
+        plt.plot([camera_x, vx], [camera_y, vy], color="green", linestyle="dotted", alpha=0.6)
+
+    plt.title("Art Gallery Theorem: 1 Camera Placement")
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.axhline(0, color="black", linewidth=0.5, linestyle="--")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.axis("equal")
+    plt.show()
+
+#the visualization
+plot_polygon_with_camera()
+>>>>>>> b0680c0 (Lab7)
